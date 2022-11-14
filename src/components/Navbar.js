@@ -1,16 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { DarkModeContext } from './DarkModeContext';
 
 function Navbar(props) {
+   const {darkMode , toggleDark} = useContext(DarkModeContext);
    return ( 
       <nav 
-      className={props.darkMode ? "dark" : ""}>
+      className={darkMode ? "dark" : ""}>
          <img  className='nav--logo_icon'
                src="./images/react-icon-small.png"/>
          <h3 className='nav--logo_text'>ReactFacts</h3>
          <div className='toggler'>
             <p className='toggler--light'>Light</p>
                <div 
-                  onClick={props.toggleDark}
+                  onClick={toggleDark}
                   className="toggler--slider">
                   <div class="toggler--slider--circle"></div>
                </div>
